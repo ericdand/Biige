@@ -11,14 +11,14 @@ public class BoxSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objectsEnumerator = objects.GetEnumerator ();
-		currentObject = GetNextObject ();
+		currentObject = GetNextObject();
 	}
 
 	GameObject GetNextObject() {
-		var obj = objectsEnumerator.Current;
-		if (!objectsEnumerator.MoveNext ())
-			objectsEnumerator = objects.GetEnumerator ();
-		return obj;
+		if (!objectsEnumerator.MoveNext ()) {
+			objectsEnumerator.Reset ();
+		}
+		return objectsEnumerator.Current;
 	}
 
 	// Update is called once per frame
@@ -27,8 +27,7 @@ public class BoxSpawner : MonoBehaviour {
 			currentObject = GetNextObject ();
 		}
 		if (Input.GetButtonDown ("Spawn Object")) {
-			Instantiate (currentObject, new Vector3(Input.mousePosition.x, 
-				Input.mousePosition.y, MouseDrag.distanceFromCamera), Quaternion.identity);
+			Instantiate (currentObject, MouseInterpreter.GetMousePosOnPlane(), Quaternion.identity);
 		}
 	}
 }
