@@ -4,7 +4,7 @@ using UnityEngine;
 public static class MouseInterpreter
 {
 	private static float distanceFromGround = 3f;
-	private static float zScalingFactor = 0.1f;
+	private static float zScalingFactor = 1f;
 
 	/// <summary>
 	/// Gets the mouse position on the plane.
