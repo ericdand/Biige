@@ -11,12 +11,13 @@ public class BoxSpawner : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		objectsEnumerator = objects.GetEnumerator ();
-		currentObject = GetNextObject ();
+		currentObject = GetNextObject();
 	}
 
 	GameObject GetNextObject() {
-		if (!objectsEnumerator.MoveNext ())
-			objectsEnumerator = objects.GetEnumerator ();
+		if (!objectsEnumerator.MoveNext ()) {
+			objectsEnumerator.Reset ();
+		}
 		return objectsEnumerator.Current;
 	}
 
@@ -26,8 +27,7 @@ public class BoxSpawner : MonoBehaviour {
 			currentObject = GetNextObject ();
 		}
 		if (Input.GetButtonDown ("Spawn Object")) {
-			Instantiate (currentObject, new Vector3(Input.mousePosition.x, 
-				Input.mousePosition.y, MouseDrag.distanceFromCamera), Quaternion.identity);
+			Instantiate (currentObject, MouseInterpreter.GetMousePosOnPlane(), Quaternion.identity);
 		}
 	}
 }
