@@ -15,10 +15,9 @@ public class BoxSpawner : MonoBehaviour {
 	}
 
 	GameObject GetNextObject() {
-		var obj = objectsEnumerator.Current;
 		if (!objectsEnumerator.MoveNext ())
 			objectsEnumerator = objects.GetEnumerator ();
-		return obj;
+		return objectsEnumerator.Current;
 	}
 
 	// Update is called once per frame
