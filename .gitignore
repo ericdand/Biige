@@ -32,3 +32,5 @@ sysinfo.txt
 
 # Other non-unity stuff
 *.swp
+*.exe
+*.pdb
