@@ -8,7 +8,7 @@ public class MouseDrag : MonoBehaviour {
 		set { transform.position = value; }
 	}
 
-	private float distanceFromCamera = 10f;
+	public static float distanceFromCamera = 10f;
 
 	// Use this for initialization
 	void Start () {
