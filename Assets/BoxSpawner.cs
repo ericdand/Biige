@@ -27,7 +27,7 @@ public class BoxSpawner : MonoBehaviour {
 			currentObject = GetNextObject ();
 		}
 		if (Input.GetButtonDown ("Spawn Object")) {
-			Instantiate (currentObject, MouseInterpreter.GetMousePosOnPlane(), Quaternion.identity);
+			Instantiate (currentObject, MouseInterpreter.GetMousePosAbovePlane(), Quaternion.identity);
 		}
 	}
 }

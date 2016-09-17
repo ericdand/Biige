@@ -14,7 +14,7 @@ public class MouseDrag : MonoBehaviour {
 	}
 
 	void OnMouseDrag() {
-		var mousePos = MouseInterpreter.GetMousePosOnPlane ();
+		var mousePos = MouseInterpreter.GetMousePosAbovePlane ();
 		if (mousePos != Vector3.zero) {
 			transform.position = mousePos;
 		}
