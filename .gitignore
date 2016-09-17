@@ -34,3 +34,5 @@ sysinfo.txt
 *.swp
 *.exe
 *.pdb
+
+.DS_Store
